@@ -6,25 +6,24 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class NewBehaviourScript : MonoBehaviour
 {
-    Rigidbody2D rgbd2d;
-    Vector3 movementVector;
+    public float speed = 5f;
 
-    [SerializeField] float speed = 3f;
-   
-    void Start()
+    private Rigidbody2D rb2D;
+
+    private void Start()
     {
-        rgbd2d = GetComponent<Rigidbody2D>();
-        movementVector = new Vector3();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
-    
-    void Update()
+    private void Update()
     {
-        movementVector.x = Input.GetAxisRaw("Horizontal");
-        movementVector.y = Input.GetAxisRaw("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        movementVector *= speed;
+        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
 
-        rgbd2d.velocity = movementVector;
+
+
+        rb2D.velocity = movement * speed;
     }
 }
