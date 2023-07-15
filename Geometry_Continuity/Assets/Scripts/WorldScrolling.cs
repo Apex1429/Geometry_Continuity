@@ -14,13 +14,18 @@ public class WorldScrolling : MonoBehaviour
 
     [SerializeField] int terrainTileHorizontalCount;
     [SerializeField] int terrainTileVerticalCount;
-    [SerializeField] int fieldOfVisionHeight = 2;
-    [SerializeField] int fieldOfVisionWidth = 2;
+    [SerializeField] int fieldOfVisionHeight = 4;
+    [SerializeField] int fieldOfVisionWidth = 4;
 
 
     private void Awake()
     {
         terrainTiles = new GameObject[terrainTileHorizontalCount, terrainTileVerticalCount];
+    }
+
+    private void Start()
+    {
+        UpdateTilesOnScreen();
     }
 
     private void Update()
