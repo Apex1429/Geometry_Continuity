@@ -4,26 +4,43 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    public float speed = 5f;
 
-    private Rigidbody2D rb2D;
+    Rigidbody2D rgbd2d;
+    [HideInInspector]
+    public Vector3 movementVector;
 
-    private void Start()
+    [HideInInspector]
+    public float lastHorizontalVector;
+    [HideInInspector]
+    public float lastVerticalVector;
+
+    [SerializeField] float speed;
+
+
+    private void Awake()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        rgbd2d = GetComponent<Rigidbody2D>();
+        movementVector = new Vector3();
+
     }
-
-    private void Update()
+     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        movementVector.x = Input.GetAxisRaw("Horizontal");
+        movementVector.y = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+        if (movementVector.x != 0)
+        {
+            lastHorizontalVector = movementVector.x;
+        }
+        if (movementVector.y != 0)
+        {
+            lastVerticalVector = movementVector.y;
+        }
 
+        movementVector *= speed;
 
-
-        rb2D.velocity = movement * speed;
+        rgbd2d.velocity = movementVector;
     }
 }
