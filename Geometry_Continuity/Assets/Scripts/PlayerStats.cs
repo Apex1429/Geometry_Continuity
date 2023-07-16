@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int maxHP = 1000;
+    public int currentHP = 1000;
 
-    // Update is called once per frame
-    void Update()
+
+    public void TakeDamage(int damage)
     {
-        
+        currentHP -= damage;
+
+        if(currentHP <= 0)
+        {
+            Debug.Log("You are dead! GAME OVER!");
+        }
     }
 }

@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform targetDestination;
     [SerializeField] float speed;
     GameObject targetGameobject;
+    PlayerStats targetCharacter;
     [SerializeField] int hp = 4;
+    [SerializeField] int damage = 1;
 
     Rigidbody2D rgdbd2d;
 
@@ -34,7 +36,11 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacking the Character!");
+        if (targetCharacter == null)
+        {
+            targetCharacter = targetGameobject.GetComponent<PlayerStats>();
+        }
+        targetCharacter.TakeDamage(damage);
     }
 
     public void TakeDamage(int damage)
