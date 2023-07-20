@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 1000
-  currentHP: 1000
+  currentHP: 800
   hpBar: {fileID: 1656272152}
 --- !u!61 &953108188
 BoxCollider2D:
