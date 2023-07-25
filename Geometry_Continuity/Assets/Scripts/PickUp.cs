@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] int healAmount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerStats c = collision.GetComponent<PlayerStats>();
         if (c != null)
         {
-            c.Heal(healAmount);
+            GetComponent<IPickUpObject>().OnPickUp(c);
             Destroy(gameObject);
         }
     }
