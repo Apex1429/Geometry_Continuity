@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8379751151534049364}
   - component: {fileID: -9043580586876753550}
   - component: {fileID: 7717903994852086296}
+  - component: {fileID: -5702203257039198118}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItemPrefab: {fileID: 6893588248930799832, guid: 520a2e97690df45089a35194fbba1093, type: 3}
   chance: 0.3
+--- !u!114 &-5702203257039198118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648830626095996610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bdf8de39ac49c2a67d755cd93fdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
